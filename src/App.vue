@@ -1,5 +1,33 @@
 <template>
-  <header>
+  <header v-if="start_width <= 525" :style="{'width':start_width+'px'}">
+    <h1 class="logo">Raschet.com</h1>
+    <nav>
+      <a href="#first">процент от</a>
+      <a href="#second">тмп. роста</a>
+      <a href="#third">целев. цена</a>
+      <a href="#fourth">маржинал.</a>
+      <a href="#fifth">netdebt/ebitda</a>
+    </nav>
+    <div class="theme_switch">
+      <div class="theme_switch__empty"></div>
+      <img class="sun_icon" src="./imgs/sun.jpg" alt="" />
+      <div class="switcher">
+        <svg
+          class="switcher__round"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12" cy="12" r="12" fill="white" />
+        </svg>
+      </div>
+      <div class="theme_switch__empty2"></div>
+    </div>
+  </header>
+
+  <header v-if="start_width > 525">
     <h1 class="logo">Raschet.com</h1>
     <nav>
       <a href="#first">процент от</a>
@@ -115,7 +143,7 @@
 export default {
   data() {
     return {
-      persent1: null,
+      start_width: window.screen.width,
       copy_flag: null,
       test: [
         {
@@ -200,9 +228,6 @@ export default {
       setTimeout(() => {
         this.copy_flag = null;
       }, 2500);
-    },
-    increment() {
-      this.count++;
     },
   },
 };
