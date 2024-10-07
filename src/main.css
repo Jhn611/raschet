@@ -51,7 +51,8 @@ body {
 }
 
 header {
-  position: fixed;
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -283,7 +284,7 @@ input::-webkit-inner-spin-button {
     -webkit-overflow-scrolling: touch;
   }
   header {
-    width: 100%;
+    width: 73%;
   }
   nav {
     display: none;
