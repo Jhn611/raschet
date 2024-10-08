@@ -1,5 +1,5 @@
 <template>
-  <header v-if="start_width <= 525" :style="{'width':start_width+'px'}">
+  <header v-if="start_width <= 525" :style="{ width: start_width + 'px' }">
     <h1 class="logo">Raschet.com</h1>
     <nav>
       <a href="#first">процент от</a>
@@ -60,27 +60,27 @@
       <h2>{{ t.name }}</h2>
       <div class="card__main">
         <div class="card__main__inputs">
-          <div class="input_div">
-            <p class="input_text">{{ t.inp1text }}</p>
-            <input v-model="t.inp1" type="number" placeholder="Введите текст" />
+          <label class="input">
+            <input v-model="t.inp1" class="input__field" type="number" placeholder=" " />
+            <span class="input__label">{{  t.inp1text }}</span>
             <img
               @click="clear(t, 'inp1')"
-              class="input_img"
+              class="input__img"
               src="./imgs/close.png"
               alt=""
             />
-          </div>
-
-          <div class="input_div">
-            <p class="input_text">{{ t.inp2text }}</p>
-            <input v-model="t.inp2" type="number" placeholder="Введите текст" />
+          </label>
+          
+          <label class="input">
+            <input v-model="t.inp2" class="input__field" type="number" placeholder=" " />
+            <span class="input__label">{{  t.inp2text }}</span>
             <img
               @click="clear(t, 'inp2')"
-              class="input_img"
+              class="input__img"
               src="./imgs/close.png"
               alt=""
             />
-          </div>
+          </label>
         </div>
         <div class="card__main__results">
           <p
