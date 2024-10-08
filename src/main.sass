@@ -5,6 +5,8 @@
   font-style: normal
   font-display: swap
 
+$black: #000000
+
 #app
     //all: unset
     width: 100%
@@ -13,28 +15,28 @@ h1
     font-size: 32px
     font-family: Roboto
     font-weight: 600
-    color: #252525
+    color: $black
     margin: 0
 
 h2
     font-size: 20px
     font-family: Roboto
     font-weight: 400
-    color: #000000
+    color: $black
     margin: 0
 
 p
     font-size: 20px
     font-family: Roboto
     font-weight: 400
-    color: #000000
+    color: $black
     margin: 0
 
 a
     all: unset
     font-size: 20px
     font-family: Roboto
-    color: #000000
+    color: $black
     &:hover
         
 
@@ -186,7 +188,7 @@ input::-webkit-inner-spin-button
     align-items: center
     justify-content: center
     background-color: transparent
-    border: 1px solid #000000
+    border: 1px solid $black
     border-radius: 10px
     width: 153px
     height: 40px
@@ -246,9 +248,9 @@ input::-webkit-inner-spin-button
         left: 0
         display: block
         width: 100%
-        border: 1px solid #000000
+        border: 1px solid $black
         padding: 0 0 0 14px
-        color: #000000
+        color: $black
         background: transparent
         border-radius: 10px
         width: 400px
@@ -260,7 +262,7 @@ input::-webkit-inner-spin-button
         &:not(:placeholder-shown) 
             & + .input__label 
                 transform: translate(.25rem, -145%) scale(.8)
-                color: #000000
+                color: $black
       
 
 @keyframes visible_on
@@ -289,6 +291,8 @@ input::-webkit-inner-spin-button
             width: 80px
         &__empty2
             width: 10px
+
+
 @media  screen and (max-width: 525px) 
     html
         width: 100%
@@ -304,13 +308,16 @@ input::-webkit-inner-spin-button
     nav
         display: none
 
-    .input_img
-        display: none
-    input
-        top: 9px
-        width: 391px
-    .input_text
-        top: 10px
+    .input 
+        width: 340px
+        height: 40px
+        &__img
+            display: none
+
+        &__field 
+            width: 328px
+            height: 40px
+
     .input_div
         width: 340px
         height: 56px
@@ -337,7 +344,7 @@ input::-webkit-inner-spin-button
             width: 700px
             height: 220px
             &__inputs
-                height: 130px
+                height: 110px
             &__results
                 height: 72px
 

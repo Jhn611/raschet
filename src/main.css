@@ -13,7 +13,7 @@ h1 {
   font-size: 32px;
   font-family: Roboto;
   font-weight: 600;
-  color: #252525;
+  color: #000000;
   margin: 0;
 }
 
@@ -335,15 +335,16 @@ input::-webkit-inner-spin-button {
   nav {
     display: none;
   }
-  .input_img {
+  .input {
+    width: 340px;
+    height: 40px;
+  }
+  .input__img {
     display: none;
   }
-  input {
-    top: 9px;
-    width: 391px;
-  }
-  .input_text {
-    top: 10px;
+  .input__field {
+    width: 328px;
+    height: 40px;
   }
   .input_div {
     width: 340px;
@@ -378,7 +379,7 @@ input::-webkit-inner-spin-button {
     height: 220px;
   }
   .card__main__inputs {
-    height: 130px;
+    height: 110px;
   }
   .card__main__results {
     height: 72px;
