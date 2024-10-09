@@ -37,6 +37,7 @@ a
     font-size: 20px
     font-family: Roboto
     color: $black
+    cursor: pointer
     &:hover
         
 
@@ -44,22 +45,24 @@ html
     scroll-padding-top: 40px
     
 body
-    //background-color: #ffffff
+    background-color: #efefef
     margin: 0
     display: flex
     flex-direction: column
     align-items: center
+    //background: url("./imgs/bg11.jpg") no-repeat center center fixed
+    //background-size: cover
 
 header
-    position: sticky
-    top: 0
+    position: fixed
+    //top: 0
     display: flex
     flex-direction: row
     justify-content: space-between
     align-items: center
     //border-bottom: 1px solid #16121a
-    box-shadow: 0px 4px 8px 0px rgba(67, 34, 80, 0.1)
-    background-color: #ffffff
+    box-shadow: 0px 4px 8px 0px rgba(67, 34, 80, 0.2)
+    background-color: #f1efef
     height: 72px
     width: 100%
     z-index: 1000
@@ -147,7 +150,7 @@ input::-webkit-inner-spin-button
     height: 28px
 
 .empty_card
-    height: 50px
+    height: 120px
 
 .card
     scroll-margin-top: 100px
@@ -157,9 +160,12 @@ input::-webkit-inner-spin-button
     justify-content: space-between
     width: 727px
     height: 278px
-    border: 1px solid #16121a
+    //border: 1px solid #16121a
     border-radius: 10px
     padding: 10px 0 0 0
+    box-shadow:  12px 12px 12px rgba(0, 0, 0, 0.1),  -10px -10px 10px rgb(255, 255, 255) 
+    &__info
+        padding: 0 0 14px 0
     &__empty
         height: 0
     &__main
@@ -193,8 +199,10 @@ input::-webkit-inner-spin-button
     width: 153px
     height: 40px
 
-.copyed_text:hover
-    color: #8973c1
+.copyed_text
+    cursor: pointer
+    &:hover
+        color: #8973c1
 
 .note
     font-size: 12px
@@ -263,7 +271,9 @@ input::-webkit-inner-spin-button
             & + .input__label 
                 transform: translate(.25rem, -145%) scale(.8)
                 color: $black
-      
+
+.glass
+    backdrop-filter: blur(10px)
 
 @keyframes visible_on
     0% 
@@ -337,7 +347,7 @@ input::-webkit-inner-spin-button
     .card
         flex-direction: column
         justify-content: space-between
-        width: 500px
+        width: 365px
         height: 300px
         border: 0px solid #16121a
         &__info
