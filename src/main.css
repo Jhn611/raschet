@@ -299,6 +299,15 @@ input::-webkit-inner-spin-button {
   }
 }
 @media screen and (max-width: 1300px) {
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  #app {
+    overflow-x: hidden;
+  }
   nav {
     display: flex;
     flex-direction: row;
