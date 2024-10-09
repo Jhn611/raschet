@@ -284,6 +284,7 @@ input::-webkit-inner-spin-button {
   font-size: 16px;
   font-family: Roboto;
   font-weight: 400;
+  cursor: pointer;
 }
 .input__field:not(:-moz-placeholder-shown) + .input__label {
   transform: translate(0.25rem, -145%) scale(0.8);
