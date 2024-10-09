@@ -288,6 +288,9 @@ input::-webkit-inner-spin-button {
   font-weight: 400;
   cursor: pointer;
 }
+.input__field:focus {
+  cursor: text;
+}
 .input__field:not(:-moz-placeholder-shown) + .input__label {
   transform: translate(0.25rem, -145%) scale(0.8);
   color: #000000;
