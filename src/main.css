@@ -413,6 +413,42 @@ input::-webkit-inner-spin-button {
   }
 }
 @media screen and (max-width: 390px) {
+  .input {
+    width: 320px;
+    height: 40px;
+  }
+  .input__img {
+    display: none;
+  }
+  .input__field {
+    width: 308px;
+    height: 40px;
+  }
+  .card {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 345px;
+    height: 300px;
+    border: 0px solid #16121a;
+  }
+  .card__info {
+    font-size: 14px;
+    width: 340px;
+  }
+  .card__empty {
+    height: 0;
+  }
+  .card__main {
+    flex-direction: column;
+    width: 700px;
+    height: 220px;
+  }
+  .card__main__inputs {
+    height: 110px;
+  }
+  .card__main__results {
+    height: 72px;
+  }
   header {
     width: 68%;
   }
