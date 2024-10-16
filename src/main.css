@@ -20,7 +20,15 @@ h1 {
 h2 {
   font-size: 20px;
   font-family: Roboto;
-  font-weight: 400;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+h3 {
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 500;
   color: #000000;
   margin: 0;
 }
@@ -50,6 +58,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: url("./imgs/bg.png");
+  background-size: 100% 650px;
+  background-repeat: repeat;
+  background-position: center center;
 }
 
 header {
@@ -169,9 +181,11 @@ input::-webkit-inner-spin-button {
   height: 278px;
   border-radius: 10px;
   padding: 10px 0 0 0;
-  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px rgb(255, 255, 255);
+  box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 .card__info {
+  font-weight: 300;
+  font-size: 16px;
   padding: 0 0 14px 0;
 }
 .card__empty {
@@ -355,6 +369,10 @@ input::-webkit-inner-spin-button {
   body {
     width: 100%;
     -webkit-overflow-scrolling: touch;
+    background: url("./imgs/bg.png");
+    background-size: 145% 600px;
+    background-repeat: repeat;
+    background-position: center center;
   }
   header {
     width: 73%;
@@ -389,6 +407,7 @@ input::-webkit-inner-spin-button {
   .card {
     flex-direction: column;
     justify-content: space-between;
+    background-color: #ffffff;
     width: 365px;
     height: 300px;
     border: 0px solid #16121a;

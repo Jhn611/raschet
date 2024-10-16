@@ -92,7 +92,7 @@
           >
             Скопированно!
           </p>
-          <h2>результат:</h2>
+          <h3>результат:</h3>
           <div class="result_container">
             <p
               @click="copy(percent(t.inp1, t.inp2), t.func)"
