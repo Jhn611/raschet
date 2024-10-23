@@ -38,7 +38,8 @@
     </nav>
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
-      <img class="sun_icon" src="./imgs/sun.png" alt="" />
+      <div class="theme_switch__bg">
+        <img class="sun_icon" src="./imgs/sun.png" alt="" />
       <div class="switcher">
         <svg
           class="switcher__round"
@@ -50,6 +51,7 @@
         >
           <circle cx="12" cy="12" r="12" fill="white" />
         </svg>
+      </div>
       </div>
       <div class="theme_switch__empty2"></div>
     </div>

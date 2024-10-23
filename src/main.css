@@ -59,7 +59,7 @@ body {
   flex-direction: column;
   align-items: center;
   background: url("./imgs/bg.png");
-  background-size: 100% 700px;
+  background-size: 100% 800px;
   background-repeat: repeat;
   background-position: center center;
 }
@@ -70,8 +70,6 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 4px 8px 0px rgba(67, 34, 80, 0.2);
-  background-color: #f1efef;
   height: 72px;
   width: 100%;
   z-index: 1000;
@@ -82,7 +80,12 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0 14px 0 14px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #dbdbdb;
   width: 851px;
+  height: 45px;
 }
 
 main {
@@ -131,9 +134,14 @@ input::-webkit-inner-spin-button {
 }
 
 .logo {
-  width: 230px;
+  width: 212px;
+  height: 45px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #dbdbdb;
 }
 
 .theme_switch {
@@ -142,6 +150,17 @@ input::-webkit-inner-spin-button {
   align-items: center;
   justify-content: space-evenly;
   width: 224px;
+}
+.theme_switch__bg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #dbdbdb;
+  width: 110px;
+  height: 45px;
 }
 .theme_switch__empty {
   width: 110px;
