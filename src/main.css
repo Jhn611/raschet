@@ -414,6 +414,9 @@ input::-webkit-inner-spin-button {
     width: 340px;
     height: 56px;
   }
+  .logo {
+    padding: 0 4px 0 4px;
+  }
   .theme_switch {
     width: 110px;
     background-color: #ffffff;
