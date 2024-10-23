@@ -415,7 +415,22 @@ input::-webkit-inner-spin-button {
     height: 56px;
   }
   .theme_switch {
-    width: 124px;
+    width: 110px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #dbdbdb;
+    height: 45px;
+  }
+  .theme_switch__bg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #dbdbdb;
+    width: 110px;
+    height: 45px;
   }
   .theme_switch__empty {
     width: 0px;
