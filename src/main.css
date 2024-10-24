@@ -297,20 +297,6 @@ input::-webkit-inner-spin-button {
   width: 135px;
 }
 
-.copy_animate_on {
-  animation: 3s visible_on;
-}
-
-.switch_animate_on {
-  animation: 0.3s switcher;
-  transform: translate(-25px, 0);
-}
-
-.switch_animate_off {
-  animation: 0.3s switcher_reverse;
-  transform: translate(0, 0);
-}
-
 .input {
   position: relative;
   width: 400px;
@@ -372,9 +358,18 @@ input::-webkit-inner-spin-button {
   color: var(--black);
 }
 
-.glass {
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+.copy_animate_on {
+  animation: 3s visible_on;
+}
+
+.switch_animate_on {
+  animation: 0.3s switcher;
+  transform: translate(-26px, 0);
+}
+
+.switch_animate_off {
+  animation: 0.3s switcher_reverse;
+  transform: translate(0, 0);
 }
 
 @keyframes visible_on {
@@ -393,12 +388,12 @@ input::-webkit-inner-spin-button {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(-25px, 0);
+    transform: translate(-26px, 0);
   }
 }
 @keyframes switcher_reverse {
   0% {
-    transform: translate(-25px, 0);
+    transform: translate(-26px, 0);
   }
   100% {
     transform: translate(0, 0);
