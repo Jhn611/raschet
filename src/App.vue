@@ -12,8 +12,11 @@
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
       <img class="sun_icon" src="./imgs/sun.png" alt="" />
-      <div class="switcher">
-        <svg
+      <div @click="switch_theme" class="switcher">
+        <svg :class="{
+              switch_animate_on: !theme_flag,
+              switch_animate_off: theme_flag
+          }"
           class="switcher__round"
           width="24"
           height="24"
@@ -42,7 +45,10 @@
       <div class="theme_switch__bg">
         <img class="sun_icon" src="./imgs/sun.png" alt="" />
         <div @click="switch_theme" class="switcher">
-          <svg
+          <svg :class="{
+              switch_animate_on: !theme_flag,
+              switch_animate_off: theme_flag
+            }"
             class="switcher__round"
             width="24"
             height="24"
@@ -248,7 +254,7 @@ export default {
         this.theme_flag = false;
         document.documentElement.style.setProperty("--black", "#ffffff");
         document.documentElement.style.setProperty("--white", "#2a2a2a");
-        document.documentElement.style.setProperty("--borderhead", "#2f2f2f");
+        document.documentElement.style.setProperty("--borderhead", "#393939");
         document.documentElement.style.setProperty("--inputtext", "#dfdfdf");
         document.documentElement.style.setProperty("--inputbg", "#383638");
         document.documentElement.style.setProperty("--switcherbg", "#392f50");
@@ -260,7 +266,7 @@ export default {
         document.documentElement.style.setProperty("--copyalert", "#494259");
         document.documentElement.style.setProperty("--inputlabel", "#a7a7a7");
         document.documentElement.style.setProperty("--img", "100%");
-        
+
       } else {
         this.theme_flag = true;
         document.documentElement.style.setProperty(

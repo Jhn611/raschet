@@ -20,6 +20,7 @@
   --test: #2a2a2a
   --img: 0
 
+
 #app
     //all: unset
     width: 100%
@@ -198,6 +199,7 @@ input::-webkit-inner-spin-button
         position: relative
         left: 29px
         top: 5px
+        transform: translate(0, 0)
 
 .sun_icon
     width: 28px
@@ -279,6 +281,14 @@ input::-webkit-inner-spin-button
 .copy_animate_on
     animation: 3s visible_on 
 
+.switch_animate_on
+    animation: 0.3s switcher
+    transform: translate(-25px, 0)
+
+.switch_animate_off
+    animation: 0.3s switcher_reverse
+    transform: translate(0, 0)
+
 .input 
     position: relative
     width: 400px
@@ -347,6 +357,18 @@ input::-webkit-inner-spin-button
     100% 
         opacity: 0
 
+@keyframes switcher
+    0% 
+        transform: translate(0, 0)
+    100% 
+        transform: translate(-25px, 0)
+
+@keyframes switcher_reverse
+    0% 
+        transform: translate(-25px, 0)
+    100% 
+        transform: translate(0, 0)
+        
 @media  screen and (max-width: 1300px) 
     html
         overflow-x: hidden
@@ -373,7 +395,10 @@ input::-webkit-inner-spin-button
             width: 10px
 
 
-@media  screen and (max-width: 525px) 
+@media  screen and (max-width: 525px)        
+    .over_body
+        background: url("./imgs/bg_mobile.png")
+
     html
         width: 100%
         -webkit-overflow-scrolling: touch
@@ -381,10 +406,7 @@ input::-webkit-inner-spin-button
     body
         width: 100%
         -webkit-overflow-scrolling: touch
-        background: url("./imgs/bg_mobile.png")
-        background-size: 100% 650px
-        background-repeat: repeat
-        background-position: center center
+
     
     header
         width: 73%
@@ -415,6 +437,7 @@ input::-webkit-inner-spin-button
         border-radius: 20px
         border: 1px solid var(--borderhead)
         height: 45px
+        margin: 0 10px 0 0 
         &__bg
             display: flex
             flex-direction: row
