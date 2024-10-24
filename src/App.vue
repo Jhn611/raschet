@@ -1,4 +1,5 @@
 <template>
+  <div class="over_body"></div>
   <header v-if="start_width <= 525" :style="{ width: start_width + 'px' }">
     <h1 class="logo">Raschet.com</h1>
     <nav>
@@ -40,18 +41,18 @@
       <div class="theme_switch__empty"></div>
       <div class="theme_switch__bg">
         <img class="sun_icon" src="./imgs/sun.png" alt="" />
-      <div class="switcher">
-        <svg
-          class="switcher__round"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="12" cy="12" r="12" fill="white" />
-        </svg>
-      </div>
+        <div @click="switch_theme" class="switcher">
+          <svg
+            class="switcher__round"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="12" fill="white" />
+          </svg>
+        </div>
       </div>
       <div class="theme_switch__empty2"></div>
     </div>
@@ -63,8 +64,13 @@
       <div class="card__main">
         <div class="card__main__inputs">
           <label class="input">
-            <input v-model="t.inp1" class="input__field" type="number" placeholder=" " />
-            <span class="input__label">{{  t.inp1text }}</span>
+            <input
+              v-model="t.inp1"
+              class="input__field"
+              type="number"
+              placeholder=" "
+            />
+            <span class="input__label">{{ t.inp1text }}</span>
             <img
               @click="clear(t, 'inp1')"
               class="input__img"
@@ -72,10 +78,15 @@
               alt=""
             />
           </label>
-          
+
           <label class="input">
-            <input v-model="t.inp2" class="input__field" type="number" placeholder=" " />
-            <span class="input__label">{{  t.inp2text }}</span>
+            <input
+              v-model="t.inp2"
+              class="input__field"
+              type="number"
+              placeholder=" "
+            />
+            <span class="input__label">{{ t.inp2text }}</span>
             <img
               @click="clear(t, 'inp2')"
               class="input__img"
@@ -147,6 +158,7 @@ export default {
     return {
       start_width: window.screen.width,
       copy_flag: null,
+      theme_flag: true,
       test: [
         {
           name: "процент от",
@@ -230,6 +242,46 @@ export default {
       setTimeout(() => {
         this.copy_flag = null;
       }, 2500);
+    },
+    switch_theme(event) {
+      if (this.theme_flag) {
+        this.theme_flag = false;
+        document.documentElement.style.setProperty("--black", "#ffffff");
+        document.documentElement.style.setProperty("--white", "#2a2a2a");
+        document.documentElement.style.setProperty("--borderhead", "#2f2f2f");
+        document.documentElement.style.setProperty("--inputtext", "#dfdfdf");
+        document.documentElement.style.setProperty("--inputbg", "#383638");
+        document.documentElement.style.setProperty("--switcherbg", "#392f50");
+        document.documentElement.style.setProperty(
+          "--bg",
+          "0.6"
+        );
+        document.documentElement.style.setProperty("--copyedtext", "#4e426d");
+        document.documentElement.style.setProperty("--copyalert", "#494259");
+        document.documentElement.style.setProperty("--inputlabel", "#a7a7a7");
+        document.documentElement.style.setProperty("--img", "100%");
+        
+      } else {
+        this.theme_flag = true;
+        document.documentElement.style.setProperty(
+          "--bg",
+          "1"
+        );
+        document.documentElement.style.setProperty("--black", "#000000");
+        document.documentElement.style.setProperty("--white", "#ffffff");
+        document.documentElement.style.setProperty("--borderhead", "#dbdbdb");
+        document.documentElement.style.setProperty("--inputtext", "#2c2c2c");
+        document.documentElement.style.setProperty("--inputbg", "#E1DAE3");
+        document.documentElement.style.setProperty("--switcherbg", "#65558f");
+        document.documentElement.style.setProperty(
+          "--cardshadow",
+          "rgba(0, 0, 0, 0.3)"
+        );
+        document.documentElement.style.setProperty("--copyedtext", "#8973c1");
+        document.documentElement.style.setProperty("--copyalert", "#cebaff");
+        document.documentElement.style.setProperty("--inputlabel", "#676767");
+        document.documentElement.style.setProperty("--img", "0");
+      }
     },
   },
 };

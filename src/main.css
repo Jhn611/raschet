@@ -5,6 +5,22 @@
   font-style: normal;
   font-display: swap;
 }
+:root {
+  --bg: 1;
+  --black: #000000;
+  --white: #ffffff;
+  --borderhead: #dbdbdb;
+  --inputtext: #2c2c2c;
+  --inputbg: #E1DAE3;
+  --switcherbg: #65558f;
+  --cardshadow: rgba(0, 0, 0, 0.3);
+  --copyedtext: #8973c1;
+  --copyalert: #cebaff;
+  --inputlabel: #676767;
+  --test: #2a2a2a;
+  --img: 0;
+}
+
 #app {
   width: 100%;
 }
@@ -13,7 +29,7 @@ h1 {
   font-size: 32px;
   font-family: Roboto;
   font-weight: 600;
-  color: #000000;
+  color: var(--black);
   margin: 0;
 }
 
@@ -21,7 +37,7 @@ h2 {
   font-size: 20px;
   font-family: Roboto;
   font-weight: 600;
-  color: #000000;
+  color: var(--black);
   margin: 0;
 }
 
@@ -29,7 +45,7 @@ h3 {
   font-size: 20px;
   font-family: Roboto;
   font-weight: 500;
-  color: #000000;
+  color: var(--black);
   margin: 0;
 }
 
@@ -37,7 +53,7 @@ p {
   font-size: 20px;
   font-family: Roboto;
   font-weight: 400;
-  color: #000000;
+  color: var(--black);
   margin: 0;
 }
 
@@ -45,23 +61,32 @@ a {
   all: unset;
   font-size: 20px;
   font-family: Roboto;
-  color: #000000;
+  color: var(--black);
   cursor: pointer;
 }
 html {
   scroll-padding-top: 40px;
+  background-color: var(--white);
 }
 
 body {
-  background-color: #efefef;
+  position: relative;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.over_body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: url("./imgs/bg.png");
-  background-size: 100% 800px;
+  background-size: 100% auto;
   background-repeat: repeat;
   background-position: center center;
+  z-index: -1;
+  opacity: var(--bg);
 }
 
 header {
@@ -81,9 +106,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 14px 0 14px;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 16px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid var(--borderhead);
   width: 851px;
   height: 45px;
 }
@@ -108,12 +133,12 @@ input {
   font-size: 12px;
   font-family: Roboto;
   font-weight: 400;
-  color: #2c2c2c;
+  color: var(--inputtext);
   margin: 0;
 }
 
 .input_div {
-  background-color: #E1DAE3;
+  background-color: var(--inputbg);
   border-radius: 10px;
   width: 450px;
   height: 56px;
@@ -139,9 +164,10 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 20px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid var(--borderhead);
+  margin: 0 0 0 10px;
 }
 
 .theme_switch {
@@ -156,9 +182,9 @@ input::-webkit-inner-spin-button {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 20px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid var(--borderhead);
   width: 110px;
   height: 45px;
 }
@@ -172,7 +198,7 @@ input::-webkit-inner-spin-button {
 .switcher {
   width: 56px;
   height: 34px;
-  background-color: #65558f;
+  background-color: var(--switcherbg);
   border-radius: 25px;
 }
 .switcher__round {
@@ -184,6 +210,7 @@ input::-webkit-inner-spin-button {
 .sun_icon {
   width: 28px;
   height: 28px;
+  filter: invert(var(--img));
 }
 
 .empty_card {
@@ -200,7 +227,7 @@ input::-webkit-inner-spin-button {
   height: 270px;
   border-radius: 10px;
   padding: 10px 0 0 0;
-  box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0px 5px 10px var(--cardshadow);
 }
 .card__info {
   font-weight: 300;
@@ -239,7 +266,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  border: 1px solid #000000;
+  border: 1px solid var(--black);
   border-radius: 10px;
   width: 153px;
   height: 40px;
@@ -249,7 +276,7 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 .copyed_text:hover {
-  color: #8973c1;
+  color: var(--copyedtext);
 }
 
 .note {
@@ -263,7 +290,7 @@ input::-webkit-inner-spin-button {
   opacity: 0;
   justify-content: center;
   align-items: center;
-  background-color: #cebaff;
+  background-color: var(--copyalert);
   border-radius: 5px;
   font-size: 18px;
   width: 135px;
@@ -291,7 +318,7 @@ input::-webkit-inner-spin-button {
   font-size: 16px;
   font-family: Roboto;
   font-weight: 400;
-  color: #676767;
+  color: var(--inputlabel);
   margin: 0;
   cursor: pointer;
 }
@@ -302,6 +329,7 @@ input::-webkit-inner-spin-button {
   top: -32px;
   left: 384px;
   cursor: pointer;
+  filter: invert(var(--img));
 }
 .input__field {
   position: relative;
@@ -309,9 +337,9 @@ input::-webkit-inner-spin-button {
   left: 0;
   display: block;
   width: 100%;
-  border: 1px solid #000000;
+  border: 1px solid var(--black);
   padding: 0 0 0 14px;
-  color: #000000;
+  color: var(--black);
   background: transparent;
   border-radius: 10px;
   width: 400px;
@@ -326,11 +354,11 @@ input::-webkit-inner-spin-button {
 }
 .input__field:not(:-moz-placeholder-shown) + .input__label {
   transform: translate(0.25rem, -145%) scale(0.8);
-  color: #000000;
+  color: var(--black);
 }
 .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
   transform: translate(0.25rem, -145%) scale(0.8);
-  color: #000000;
+  color: var(--black);
 }
 
 .glass {
@@ -419,9 +447,9 @@ input::-webkit-inner-spin-button {
   }
   .theme_switch {
     width: 110px;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 20px;
-    border: 1px solid #dbdbdb;
+    border: 1px solid var(--borderhead);
     height: 45px;
   }
   .theme_switch__bg {
@@ -429,9 +457,9 @@ input::-webkit-inner-spin-button {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 20px;
-    border: 1px solid #dbdbdb;
+    border: 1px solid var(--borderhead);
     width: 110px;
     height: 45px;
   }
@@ -444,7 +472,7 @@ input::-webkit-inner-spin-button {
   .card {
     flex-direction: column;
     justify-content: space-between;
-    background-color: #ffffff;
+    background-color: var(--white);
     width: 365px;
     height: 300px;
     border: 0px solid #16121a;
