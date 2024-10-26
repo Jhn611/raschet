@@ -12,6 +12,7 @@
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
       <img class="sun_icon" src="./imgs/sun.png" alt="" />
+      <img class="moon_icon" src="./imgs/moon.png" alt="" />
       <div @click="switch_theme" class="switcher">
         <svg :class="{
               switch_animate_on: !theme_flag,
@@ -43,7 +44,14 @@
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
       <div class="theme_switch__bg">
-        <img class="sun_icon" src="./imgs/sun.png" alt="" />
+        <img class="sun_icon" :class="{
+              sun_off: !theme_flag,
+              sun_on: theme_flag
+            }" src="./imgs/sun.png" alt="" />
+        <img class="moon_icon" :class="{
+              moon_on: !theme_flag,
+              moon_off: theme_flag
+            }" src="./imgs/moon.png" alt="" />
         <div @click="switch_theme" class="switcher">
           <svg :class="{
               switch_animate_on: !theme_flag,
@@ -262,6 +270,10 @@ export default {
           "--bg",
           "0.6"
         );
+        document.documentElement.style.setProperty(
+          "--cardshadow",
+          "rgba(0, 0, 0, 0.3)"
+        );
         document.documentElement.style.setProperty("--copyedtext", "#4e426d");
         document.documentElement.style.setProperty("--copyalert", "#494259");
         document.documentElement.style.setProperty("--inputlabel", "#a7a7a7");
@@ -281,7 +293,7 @@ export default {
         document.documentElement.style.setProperty("--switcherbg", "#65558f");
         document.documentElement.style.setProperty(
           "--cardshadow",
-          "rgba(0, 0, 0, 0.3)"
+          "rgba(0, 0, 0, 0.17)"
         );
         document.documentElement.style.setProperty("--copyedtext", "#8973c1");
         document.documentElement.style.setProperty("--copyalert", "#cebaff");
