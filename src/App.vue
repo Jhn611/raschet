@@ -11,8 +11,14 @@
     </nav>
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
-      <img class="sun_icon" src="./imgs/sun.png" alt="" />
-      <img class="moon_icon" src="./imgs/moon.png" alt="" />
+      <img class="sun_icon" :class="{
+              sun_off: !theme_flag,
+              sun_on: theme_flag
+            }" src="./imgs/sun.png" alt="" />
+        <img class="moon_icon" :class="{
+              moon_on: !theme_flag,
+              moon_off: theme_flag
+            }" src="./imgs/moon.png" alt="" />
       <div @click="switch_theme" class="switcher">
         <svg :class="{
               switch_animate_on: !theme_flag,
