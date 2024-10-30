@@ -2,13 +2,23 @@
   <div class="over_body"></div>
   <header v-if="start_width <= 525" :style="{ width: start_width + 'px' }">
     <h1 class="logo">Raschet.com</h1>
-    <nav>
-      <a href="#first">процент от</a>
-      <a href="#second">тмп. роста</a>
-      <a href="#third">целев. цена</a>
-      <a href="#fourth">маржинал.</a>
-      <a href="#fifth">netdebt/ebitda</a>
-    </nav>
+    <div class="dropdown open">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        id="triggerId"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Dropdown Colored
+      </button>
+      <div class="dropdown-menu" aria-labelledby="triggerId">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item disabled" href="#">Disabled action</a>
+      </div>
+    </div>
+    
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
       <img class="sun_icon" :class="{
@@ -173,7 +183,13 @@
 </template>
 
 <script>
+import { useCookies } from "vue3-cookies";
+
 export default {
+  setup() {
+    const { cookies } = useCookies();
+    return { cookies };
+  },
   data() {
     return {
       start_width: window.screen.width,
@@ -265,6 +281,7 @@ export default {
     },
     switch_theme(event) {
       if (this.theme_flag) {
+        this.cookies.set('theme', false);
         this.theme_flag = false;
         document.documentElement.style.setProperty("--black", "#ffffff");
         document.documentElement.style.setProperty("--white", "#2a2a2a");
@@ -286,6 +303,7 @@ export default {
         document.documentElement.style.setProperty("--img", "100%");
 
       } else {
+        this.cookies.set('theme', true);
         this.theme_flag = true;
         document.documentElement.style.setProperty(
           "--bg",
@@ -307,6 +325,14 @@ export default {
         document.documentElement.style.setProperty("--img", "0");
       }
     },
+  },
+  mounted() {
+    let my_cookie_value = this.cookies.get("theme");
+    if (my_cookie_value != null){
+      this.theme_flag = my_cookie_value;
+      this.switch_theme();
+    }
+    console.log(my_cookie_value);
   },
 };
 </script>
