@@ -271,7 +271,7 @@ export default {
         document.documentElement.style.setProperty("--borderhead", "#393939");
         document.documentElement.style.setProperty("--inputtext", "#dfdfdf");
         document.documentElement.style.setProperty("--inputbg", "#383638");
-        document.documentElement.style.setProperty("--switcherbg", "#392f50");
+        document.documentElement.style.setProperty("--switcherbg", "#9656e4");
         document.documentElement.style.setProperty(
           "--bg",
           "0.6"
