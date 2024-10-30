@@ -2,23 +2,6 @@
   <div class="over_body"></div>
   <header v-if="start_width <= 525" :style="{ width: start_width + 'px' }">
     <h1 class="logo">Raschet.com</h1>
-    <div class="dropdown open">
-      <button
-        class="btn btn-primary dropdown-toggle"
-        type="button"
-        id="triggerId"
-        data-bs-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Dropdown Colored
-      </button>
-      <div class="dropdown-menu" aria-labelledby="triggerId">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item disabled" href="#">Disabled action</a>
-      </div>
-    </div>
-    
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
       <img class="sun_icon" :class="{
