@@ -125,14 +125,14 @@
               v-if="t.func == 'persent'"
               class="copyed_text"
             >
-              {{ percent(t.inp1, t.inp2) }}
+              {{ percent(t.inp1, t.inp2) }}%
             </p>
             <p
               @click="copy(growth_rates(t.inp1, t.inp2), t.func)"
               v-if="t.func == 'temps'"
               class="copyed_text"
             >
-              {{ growth_rates(t.inp1, t.inp2) }}
+              {{ growth_rates(t.inp1, t.inp2) }}%
             </p>
             <p
               @click="copy(target_price(t.inp1, t.inp2), t.func)"
@@ -234,18 +234,33 @@ export default {
   },
   methods: {
     percent(num1, num2) {
+      if(num1 == "" || num2 == ""){
+        return 0;
+      }
       return ((num1 * 100) / num2).toFixed(3);
     },
     growth_rates(num1, num2) {
-      return ((num1 - num2) / num2).toFixed(3);
+      if(num1 == "" || num2 == ""){
+        return 0;
+      }
+      return ((num1 - num2) / num2 * 100).toFixed(3);
     },
     target_price(num1, num2) {
+      if(num1 == "" || num2 == ""){
+        return 0;
+      }
       return (num1 / num2).toFixed(3);
     },
     marginality(num1, num2) {
+      if(num1 == "" || num2 == ""){
+        return 0;
+      }
       return ((num1 / num2) * 100).toFixed(3);
     },
     netdebt_ebitda(num1, num2) {
+      if(num1 == "" || num2 == ""){
+        return 0;
+      }
       return (num1 / num2).toFixed(3);
     },
     clear(obj, val) {
