@@ -12,7 +12,7 @@
               moon_on: !theme_flag,
               moon_off: theme_flag
             }" src="./imgs/moon.png" alt="" />
-      <div @click="switch_theme" class="switcher">
+      <div @click="switch_theme_var" class="switcher">
         <svg :class="{
               switch_animate_on: !theme_flag,
               switch_animate_off: theme_flag
@@ -121,39 +121,39 @@
           <h3>результат:</h3>
           <div class="result_container">
             <p
-              @click="copy(percent(t.inp1, t.inp2), t.func)"
+              @click="copy(percent, t.func)"
               v-if="t.func == 'persent'"
               class="copyed_text"
             >
-              {{ percent(t.inp1, t.inp2) }}%
+              {{ percent }}%
             </p>
             <p
-              @click="copy(growth_rates(t.inp1, t.inp2), t.func)"
+              @click="copy(growth_rates, t.func)"
               v-if="t.func == 'temps'"
               class="copyed_text"
             >
-              {{ growth_rates(t.inp1, t.inp2) }}%
+              {{ growth_rates }}%
             </p>
             <p
-              @click="copy(target_price(t.inp1, t.inp2), t.func)"
+              @click="copy(target_price, t.func)"
               v-if="t.func == 'price'"
               class="copyed_text"
             >
-              {{ target_price(t.inp1, t.inp2) }}
+              {{ target_price }}
             </p>
             <p
-              @click="copy(marginality(t.inp1, t.inp2), t.func)"
+              @click="copy(marginality, t.func)"
               v-if="t.func == 'mar'"
               class="copyed_text"
             >
-              {{ marginality(t.inp1, t.inp2) }}
+              {{ marginality }}
             </p>
             <p
-              @click="copy(netdebt_ebitda(t.inp1, t.inp2), t.func)"
+              @click="copy(netdebt_ebitda, t.func)"
               v-if="t.func == 'n/e'"
               class="copyed_text"
             >
-              {{ netdebt_ebitda(t.inp1, t.inp2) }}
+              {{ netdebt_ebitda }}
             </p>
           </div>
           <p class="note">нажмите на цифру чтобы скопировать</p>
@@ -232,37 +232,54 @@ export default {
       ],
     };
   },
-  methods: {
-    percent(num1, num2) {
+  computed:{
+    percent() {
+      let num1 = this.test[0].inp1;
+      let num2 = this.test[0].inp2;
+
       if(num1 == "" || num2 == ""){
         return 0;
       }
       return ((num1 * 100) / num2).toFixed(3);
     },
-    growth_rates(num1, num2) {
+    growth_rates() {
+      let num1 = this.test[1].inp1;
+      let num2 = this.test[1].inp2;
+
       if(num1 == "" || num2 == ""){
         return 0;
       }
       return ((num1 - num2) / num2 * 100).toFixed(3);
     },
-    target_price(num1, num2) {
+    target_price() {
+      let num1 = this.test[2].inp1;
+      let num2 = this.test[2].inp2;
+
       if(num1 == "" || num2 == ""){
         return 0;
       }
       return (num1 / num2).toFixed(3);
     },
-    marginality(num1, num2) {
+    marginality() {
+      let num1 = this.test[3].inp1;
+      let num2 = this.test[3].inp2;
+
       if(num1 == "" || num2 == ""){
         return 0;
       }
       return ((num1 / num2) * 100).toFixed(3);
     },
-    netdebt_ebitda(num1, num2) {
+    netdebt_ebitda() {
+      let num1 = this.test[4].inp1;
+      let num2 = this.test[4].inp2;
+
       if(num1 == "" || num2 == ""){
         return 0;
       }
       return (num1 / num2).toFixed(3);
     },
+  },
+  methods: {
     clear(obj, val) {
       if (val == "inp1") {
         obj.inp1 = "";
@@ -342,7 +359,30 @@ export default {
       }
       this.switch_theme();
     }
+
+    for(let i = 0; i < 5; i++){
+      const inp1 = this.cookies.get(`inp1_${i}`);
+      const inp2 = this.cookies.get(`inp2_${i}`);
+      if(inp1 != null){
+        this.test[i].inp1 = inp1;
+      }
+      if(inp2 != null){
+        this.test[i].inp2 = inp2;
+      }
+    }
   },
+
+  watch: {
+    test: {
+    handler(newVal, oldVal) {
+      for (let i = 0; i < 5; i++) {
+        this.cookies.set(`inp1_${i}`, newVal[i].inp1);
+        this.cookies.set(`inp2_${i}`, newVal[i].inp2);
+      }
+    },
+    deep: true,
+  },
+  }
 };
 </script>
 
