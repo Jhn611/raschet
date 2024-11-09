@@ -486,6 +486,33 @@ input::-webkit-inner-spin-button {
     width: 10px;
   }
 }
+@media screen and (max-width: 1000px) {
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  #app {
+    overflow-x: hidden;
+  }
+  nav {
+    display: none;
+  }
+  .theme_switch {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 224px;
+  }
+  .theme_switch__empty {
+    width: 80px;
+  }
+  .theme_switch__empty2 {
+    width: 10px;
+  }
+}
 @media screen and (max-width: 525px) {
   .over_body {
     background: url("./imgs/bg_mobile.png");
@@ -500,7 +527,7 @@ input::-webkit-inner-spin-button {
     -webkit-overflow-scrolling: touch;
   }
   header {
-    width: 73%;
+    width: 100%;
   }
   nav {
     display: none;
@@ -611,8 +638,5 @@ input::-webkit-inner-spin-button {
   }
   .card__main__results {
     height: 72px;
-  }
-  header {
-    width: 68%;
   }
 }/*# sourceMappingURL=main.css.map */

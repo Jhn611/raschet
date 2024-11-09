@@ -1,6 +1,6 @@
 <template>
   <div class="over_body"></div>
-  <header v-if="start_width <= 525" :style="{ width: start_width + 'px' }">
+  <!-- <header v-if="start_width <= 525" :style="{ width: start_width + 'px' }">
     <h1 class="logo">Raschet.com</h1>
     <div class="theme_switch">
       <div class="theme_switch__empty"></div>
@@ -29,9 +29,9 @@
       </div>
       <div class="theme_switch__empty2"></div>
     </div>
-  </header>
-
-  <header v-if="start_width > 525">
+  </header> -->
+  <!-- v-if="start_width > 525" -->
+  <header>
     <h1 class="logo">Raschet.com</h1>
     <nav>
       <a href="#first">процент от</a>
@@ -296,10 +296,10 @@ export default {
     },
     switch_theme_var(event){
       if (this.theme_flag) {
-        this.cookies.set('theme', 'false');
+        localStorage.setItem('theme', false)
         this.theme_flag = false;
       }else {
-        this.cookies.set('theme', 'true');
+        localStorage.setItem('theme', true)
         this.theme_flag = true;
       }
       this.switch_theme();
@@ -349,10 +349,10 @@ export default {
     },
   },
   mounted() {
-    const my_cookie_value = this.cookies.get("theme");
+    const theme = localStorage.getItem("theme");
 
-    if (my_cookie_value != null){
-      if(my_cookie_value == 'false'){
+    if (theme != null){
+      if(theme == 'false'){
         this.theme_flag = false;
       }else{
         this.theme_flag = true;
@@ -361,8 +361,8 @@ export default {
     }
 
     for(let i = 0; i < 5; i++){
-      const inp1 = this.cookies.get(`inp1_${i}`);
-      const inp2 = this.cookies.get(`inp2_${i}`);
+      const inp1 = localStorage.getItem(`inp1_${i}`);
+      const inp2 = localStorage.getItem(`inp2_${i}`);
       if(inp1 != null){
         this.test[i].inp1 = inp1;
       }
@@ -376,8 +376,8 @@ export default {
     test: {
     handler(newVal, oldVal) {
       for (let i = 0; i < 5; i++) {
-        this.cookies.set(`inp1_${i}`, newVal[i].inp1);
-        this.cookies.set(`inp2_${i}`, newVal[i].inp2);
+        localStorage.setItem(`inp1_${i}`, newVal[i].inp1);
+        localStorage.setItem(`inp2_${i}`, newVal[i].inp2);
       }
     },
     deep: true,

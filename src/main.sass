@@ -442,6 +442,26 @@ input::-webkit-inner-spin-button
         &__empty2
             width: 10px
 
+@media  screen and (max-width: 1000px) 
+    html
+        overflow-x: hidden
+    body
+        overflow-x: hidden
+    #app
+        overflow-x: hidden
+    nav
+        display: none
+
+    .theme_switch
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-evenly
+        width: 224px
+        &__empty
+            width: 80px
+        &__empty2
+            width: 10px
 
 @media  screen and (max-width: 525px)        
     .over_body
@@ -458,7 +478,7 @@ input::-webkit-inner-spin-button
 
     
     header
-        width: 73%
+        width: 100%
 
     nav
         display: none
@@ -552,6 +572,4 @@ input::-webkit-inner-spin-button
             &__results
                 height: 72px
 
-    header
-        width: 68%
 
