@@ -336,6 +336,9 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
   filter: invert(var(--img));
 }
+.input__img:hover {
+  animation: 0.3s close_anim;
+}
 .input__field {
   position: relative;
   top: 0;
@@ -453,6 +456,23 @@ input::-webkit-inner-spin-button {
   100% {
     transform: translate(-32px, 0);
     opacity: 1;
+  }
+}
+@keyframes close_anim {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  70% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 @media screen and (max-width: 1300px) {

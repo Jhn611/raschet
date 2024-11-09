@@ -1,36 +1,5 @@
 <template>
   <div class="over_body"></div>
-  <!-- <header v-if="start_width <= 525" :style="{ width: start_width + 'px' }">
-    <h1 class="logo">Raschet.com</h1>
-    <div class="theme_switch">
-      <div class="theme_switch__empty"></div>
-      <img class="sun_icon" :class="{
-              sun_off: !theme_flag,
-              sun_on: theme_flag
-            }" src="./imgs/sun.png" alt="" />
-        <img class="moon_icon" :class="{
-              moon_on: !theme_flag,
-              moon_off: theme_flag
-            }" src="./imgs/moon.png" alt="" />
-      <div @click="switch_theme_var" class="switcher">
-        <svg :class="{
-              switch_animate_on: !theme_flag,
-              switch_animate_off: theme_flag
-          }"
-          class="switcher__round"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="12" cy="12" r="12" fill="white" />
-        </svg>
-      </div>
-      <div class="theme_switch__empty2"></div>
-    </div>
-  </header> -->
-  <!-- v-if="start_width > 525" -->
   <header>
     <h1 class="logo">Raschet.com</h1>
     <nav>

@@ -317,6 +317,8 @@ input::-webkit-inner-spin-button
         left: 384px
         cursor: pointer
         filter: invert(var(--img))
+        &:hover
+            animation: 0.3s close_anim
 
     &__field 
         position: relative
@@ -414,6 +416,17 @@ input::-webkit-inner-spin-button
         transform: translate(-32px, 0)
         opacity: 1
 
+@keyframes close_anim
+    0% 
+        transform: rotate(0)
+    20%
+        transform: rotate(-10deg)
+    50%
+        transform: rotate(0)
+    70% 
+        transform: rotate(10deg)
+    100% 
+        transform: rotate(0)
 
     
         
