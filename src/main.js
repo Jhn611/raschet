@@ -6,7 +6,7 @@ import { globalCookiesConfig } from "vue3-cookies";
 
 globalCookiesConfig({
   expireTimes: "30d",
-  path: "/",
+  path: "/raschet.com/",
   domain: "",
   secure: true,
   sameSite: "None",

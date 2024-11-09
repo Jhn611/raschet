@@ -51,7 +51,7 @@
               moon_on: !theme_flag,
               moon_off: theme_flag
             }" src="./imgs/moon.png" alt="" />
-        <div @click="switch_theme" class="switcher">
+        <div @click="switch_theme_var" class="switcher">
           <svg :class="{
               switch_animate_on: !theme_flag,
               switch_animate_off: theme_flag
@@ -277,10 +277,19 @@ export default {
         this.copy_flag = null;
       }, 2500);
     },
-    switch_theme(event) {
+    switch_theme_var(event){
       if (this.theme_flag) {
-        this.cookies.set('theme', false);
+        this.cookies.set('theme', 'false');
         this.theme_flag = false;
+      }else {
+        this.cookies.set('theme', 'true');
+        this.theme_flag = true;
+      }
+      this.switch_theme();
+    },
+    switch_theme(event) {
+      console.log(this.theme_flag);
+      if (!this.theme_flag) {
         document.documentElement.style.setProperty("--black", "#ffffff");
         document.documentElement.style.setProperty("--white", "#2a2a2a");
         document.documentElement.style.setProperty("--borderhead", "#393939");
@@ -301,8 +310,6 @@ export default {
         document.documentElement.style.setProperty("--img", "100%");
 
       } else {
-        this.cookies.set('theme', true);
-        this.theme_flag = true;
         document.documentElement.style.setProperty(
           "--bg",
           "1"
@@ -325,12 +332,16 @@ export default {
     },
   },
   mounted() {
-    let my_cookie_value = this.cookies.get("theme");
+    const my_cookie_value = this.cookies.get("theme");
+
     if (my_cookie_value != null){
-      this.theme_flag = my_cookie_value;
+      if(my_cookie_value == 'false'){
+        this.theme_flag = false;
+      }else{
+        this.theme_flag = true;
+      }
       this.switch_theme();
     }
-    console.log(my_cookie_value);
   },
 };
 </script>
