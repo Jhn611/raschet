@@ -57,11 +57,10 @@ export function calculation_bonds(nominal_value, coupon, coupon_period, repaymen
     if (t <= 0 || coupon_period <= 0) {
         return 0; 
     }
-    const bonus = nominal_value - purchase_price;
     const counts = Math.floor(t / coupon_period);
     // console.log("купон будет получен раз: ");
     // console.log(counts);
-    const p = coupon * counts + bonus;
+    const p = coupon * counts;
 
-    return percent(p + nominal_value, nominal_value);
+    return (percent(p + nominal_value - purchase_price, purchase_price) * (365 / t)).toFixed(3);
 }

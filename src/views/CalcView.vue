@@ -109,7 +109,7 @@
             >
               Скопированно!
             </p>
-            <h3>результат:</h3>
+            <h3>годовая доходность:</h3>
             <div class="result_container">
               <p
                 @click="copy(calc)"
