@@ -8,6 +8,7 @@
 :root
   --bg: 1
   --black: #000000
+  --hover: #8c8c8c
   --white: #ffffff
   --borderhead: #dbdbdb
   --inputtext: #2c2c2c
@@ -107,9 +108,9 @@ nav
     align-items: center
     justify-content: space-between
     padding: 0 14px 0 14px
-    background-color: var(--white)
+    //background-color: var(--white)
     border-radius: 16px
-    border: 1px solid var(--borderhead)
+    //border: 1px solid var(--borderhead)
     width: 851px
     height: 45px
 
@@ -174,7 +175,7 @@ input::-webkit-inner-spin-button
     flex-direction: row
     align-items: center
     justify-content: space-evenly
-    width: 224px
+    width: 134px
     &__bg
         display: flex
         flex-direction: row
@@ -202,7 +203,6 @@ input::-webkit-inner-spin-button
         transform: translate(0, 0)
 
 .sun_icon
-
     width: 28px
     height: 28px
     filter: invert(var(--img))
@@ -216,7 +216,7 @@ input::-webkit-inner-spin-button
 
 
 .empty_card
-    height: 120px
+    height: 80px
 
 .card
     scroll-margin-top: 100px
@@ -230,6 +230,8 @@ input::-webkit-inner-spin-button
     border-radius: 10px
     padding: 10px 0 0 0
     box-shadow: inset 0px 5px 10px var(--cardshadow)
+    &__xl
+        height: 570px
     &__info
         font-weight: 300
         font-size: 16px
@@ -243,12 +245,16 @@ input::-webkit-inner-spin-button
         justify-content: space-between
         width: 665px
         height: 152px
+        &__xl
+            height: 420px
         &__inputs
             display: flex
             flex-direction: column
             align-items: center
             justify-content: space-between
             height: 112px
+            &__xl
+                height: 420px
         &__results
             display: flex
             flex-direction: column
@@ -344,7 +350,136 @@ input::-webkit-inner-spin-button
             & + .input__label 
                 transform: translate(.25rem, -145%) scale(.8)
                 color: var(--black)
-                
+    &__date
+        width: 362px
+
+.ismobile
+    display: none 
+.isnotmobile
+    display: flex 
+
+//----------------------------------------------------------------------------------
+.dropdown
+  position: relative
+
+  .dropdown-toggle
+    cursor: pointer
+
+  .dropdown-menu
+    position: absolute
+    top: calc(100% + 10px)   
+    left: -100px 
+    display: none
+    background-color: var(--white)
+    border-radius: 20px
+    border: 1px solid var(--borderhead)
+    padding: 10px
+
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+
+      li
+        padding: 5px 0
+
+        a
+          text-decoration: none
+          color: var(--black)
+
+          &:hover
+            color:  var(--hover)
+
+  &.shown .dropdown-menu
+    display: block
+
+
+// .dropdown
+//   width: 230px
+//   display: inline-block
+//   margin-right: 10px
+//   position: relative
+
+//   &.toggle > input
+//     display: none
+
+//   > a, &.toggle > label
+//     border-radius: 2px
+//     box-shadow: 0 6px 5px -5px rgba(0, 0, 0, 0.3)
+
+//     &::after
+//       content: ""
+//       float: right
+//       margin: 15px 15px 0 0
+//       width: 0
+//       height: 0
+//       border-left: 5px solid transparent
+//       border-right: 5px solid transparent
+//       border-top: 10px solid #CCC
+
+//   ul
+//     list-style-type: none
+//     display: block
+//     margin: 0
+//     padding: 0
+//     position: absolute
+//     width: 100%
+//     box-shadow: 0 6px 5px -5px rgba(0, 0, 0, 0.3)
+//     overflow: hidden
+
+//   a, &.toggle > label
+//     display: block
+//     padding: 0 0 0 10px
+//     text-decoration: none
+//     line-height: 40px
+//     font-size: 13px
+//     text-transform: uppercase
+//     font-weight: bold
+//     color: #999
+//     background-color: #FFF
+
+//   li
+//     height: 0
+//     overflow: hidden
+//     transition: all 500ms
+
+//     &:first-child a
+//       border-radius: 2px 2px 0 0
+
+//       &::before
+//         content: ""
+//         display: block
+//         position: absolute
+//         width: 0
+//         height: 0
+//         border-left: 10px solid transparent
+//         border-right: 10px solid transparent
+//         border-bottom: 10px solid #FFF
+//         margin: -10px 0 0 30px
+
+//     &:last-child a
+//       border-radius: 0 0 2px 2px
+
+//   &.hover li
+//     transition-delay: 300ms
+
+//   a:hover, &.toggle > label:hover, &.toggle > input:checked ~ label
+//     background-color: #EEE
+//     color: #666
+
+//     &::after
+//       border-top-color: #AAA
+
+//   li:first-child a:hover::before
+//     border-bottom-color: #EEE
+
+//   &.hover:hover li, &.toggle > input:checked ~ ul li
+//     height: 40px
+
+//   &.hover:hover li:first-child, &.toggle > input:checked ~ ul li:first-child
+//     padding-top: 15px
+//----------------------------------------------------------------------------------
+
 .copy_animate_on
     animation: 3s visible_on 
 
@@ -476,7 +611,11 @@ input::-webkit-inner-spin-button
         &__empty2
             width: 10px
 
-@media  screen and (max-width: 525px)        
+@media  screen and (max-width: 525px)
+    .ismobile
+        display: flex 
+    .isnotmobile
+        display: none         
     .over_body
         background: url("./imgs/bg_mobile.png")
         background-size: 100% auto
@@ -541,6 +680,8 @@ input::-webkit-inner-spin-button
         width: 365px
         height: 300px
         border: 0px solid #16121a
+        &__xl
+            height: 700px
         &__info
             font-size: 14px
             width: 340px
@@ -550,8 +691,12 @@ input::-webkit-inner-spin-button
             flex-direction: column
             width: 700px
             height: 220px
+            &__xl
+                height: 520px
             &__inputs
                 height: 110px
+                &__xl
+                    height: 420px
             &__results
                 height: 72px
 
@@ -580,8 +725,12 @@ input::-webkit-inner-spin-button
             flex-direction: column
             width: 700px
             height: 220px
+            &__xl
+                height: 520px
             &__inputs
                 height: 110px
+                &__xl
+                    height: 420px
             &__results
                 height: 72px
 

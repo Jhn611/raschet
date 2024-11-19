@@ -1,92 +1,5 @@
 <template>
-  <div class="over_body"></div>
-  <header>
-    <h1 class="logo">Raschet.com</h1>
-    <nav>
-      <!-- <div class="dropdown toggle">
-        <input id="t2" type="checkbox" checked>
-        <label for="t2">Меню</label>
-        <ul>
-          <li>
-            <div class="theme_switch">
-                <div class="theme_switch__bg">
-                  <img class="sun_icon" :class="{
-                        sun_off: !theme_flag,
-                        sun_on: theme_flag
-                      }" src="./imgs/sun.png" alt="" />
-                  <img class="moon_icon" :class="{
-                        moon_on: !theme_flag,
-                        moon_off: theme_flag
-                      }" src="./imgs/moon.png" alt="" />
-                  <div @click="switch_theme_var" class="switcher">
-                    <svg :class="{
-                        switch_animate_on: !theme_flag,
-                        switch_animate_off: theme_flag
-                      }"
-                      class="switcher__round"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle cx="12" cy="12" r="12" fill="white" />
-                    </svg>
-                  </div>
-              </div>
-            </div>
-          </li>
-          <li><a href="#first">процент от</a></li>
-          <li><a href="#second">тмп. роста</a> </li>
-          <li><a href="#third">целев. цена</a></li>
-          <li><a href="#fourth">маржинал.</a></li>
-          <li><a href="#fifth">netdebt/ebitda</a></li>
-        </ul>
-      </div> -->
-    </nav>
-    <div class="theme_switch">
-      <span class="dropdown" :class="{shown: state}">
-        <a href="#" @click.prevent="toggleDropdown" class="dropdown-toggle theme_switch__bg">Меню</a>
-        <div class="dropdown-menu" v-show="state">
-          <ul class="list-unstyled">
-              <li>
-                  <div class="theme_switch__bg">
-                    <img class="sun_icon" :class="{
-                          sun_off: !theme_flag,
-                          sun_on: theme_flag
-                        }" src="./imgs/sun.png" alt="" />
-                    <img class="moon_icon" :class="{
-                          moon_on: !theme_flag,
-                          moon_off: theme_flag
-                        }" src="./imgs/moon.png" alt="" />
-                    <div @click="switch_theme_var" class="switcher">
-                      <svg :class="{
-                          switch_animate_on: !theme_flag,
-                          switch_animate_off: theme_flag
-                        }"
-                        class="switcher__round"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <circle cx="12" cy="12" r="12" fill="white" />
-                      </svg>
-                    </div>
-                </div>
-            </li>
-            <li><RouterLink to="/">Основные расчёты</RouterLink></li>
-            <li><RouterLink to="/calc">Калькулятор облигаций</RouterLink></li>
-          </ul>
-        </div>
-      </span>
-    </div>
-  </header>
-  <div class="empty_card"></div>
-  <main>
-    <RouterView />
-    <!-- <div v-for="t in test" :key="t" :id="t.id" class="card">
+    <div v-for="t in test" :key="t" :id="t.id" class="card">
       <h2>{{ t.name }}</h2>
       <div class="card__main">
         <div class="card__main__inputs">
@@ -101,7 +14,7 @@
             <img
               @click="clear(t, 'inp1')"
               class="input__img"
-              src="./imgs/close.png"
+              src="../imgs/close.png"
               alt=""
             />
           </label>
@@ -117,7 +30,7 @@
             <img
               @click="clear(t, 'inp2')"
               class="input__img"
-              src="./imgs/close.png"
+              src="../imgs/close.png"
               alt=""
             />
           </label>
@@ -174,14 +87,12 @@
         </div>
       </div>
       <p class="card__info">{{ t.info }}</p>
-    </div> -->
-    <div></div>
-  </main>
+    </div>
 </template>
-
+  
 <script>
 import { useCookies } from "vue3-cookies";
-import { percent, growth_rates, target_price, marginality, netdebt_ebitda } from "./EconomicCalcs.js";
+import { percent, growth_rates, target_price, marginality, netdebt_ebitda } from "../EconomicCalcs.js";
 
 export default {
   setup() {
@@ -294,7 +205,6 @@ export default {
       console.log(this.theme_flag);
       if (!this.theme_flag) {
         document.documentElement.style.setProperty("--black", "#ffffff");
-        document.documentElement.style.setProperty("--input", "#939393");
         document.documentElement.style.setProperty("--white", "#2a2a2a");
         document.documentElement.style.setProperty("--borderhead", "#393939");
         document.documentElement.style.setProperty("--inputtext", "#dfdfdf");
@@ -319,7 +229,6 @@ export default {
           "1"
         );
         document.documentElement.style.setProperty("--black", "#000000");
-        document.documentElement.style.setProperty("--input", "#8c8c8c");
         document.documentElement.style.setProperty("--white", "#ffffff");
         document.documentElement.style.setProperty("--borderhead", "#dbdbdb");
         document.documentElement.style.setProperty("--inputtext", "#2c2c2c");
@@ -337,13 +246,13 @@ export default {
     },
     toggleDropdown() {
       this.state = !this.state; 
-      // console.log("Dropdown state:", this.state); 
+      console.log("Dropdown state:", this.state); 
     },
     close(e) {
-      if (!this.$el.contains(e.target) && !e.target.closest('.dropdown-toggle') && !e.target.closest('.theme_switch__bg')) { 
+      if (!this.$el.contains(e.target) && !e.target.closest('.dropdown-toggle')) { 
         this.state = false;
       }
-      // console.log("Dropdown state:", this.state); 
+      console.log("Dropdown state:", this.state); 
     },
   },
   mounted() {
@@ -387,5 +296,6 @@ export default {
   }
 };
 </script>
-
-<style src="./main.css"></style>
+  
+  <style src="../main.css"></style>
+  
