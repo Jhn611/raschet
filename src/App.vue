@@ -48,7 +48,7 @@
       <span class="dropdown" :class="{shown: state}">
         <a href="#" @click.prevent="toggleDropdown" class="dropdown-toggle theme_switch__bg">Меню</a>
         <div class="dropdown-menu" v-show="state">
-          <ul class="list-unstyled">
+          <ul class="list-unstyled menu_list">
               <li>
                   <div class="theme_switch__bg">
                     <img class="sun_icon" :class="{
@@ -76,7 +76,9 @@
                     </div>
                 </div>
             </li>
+            <hr class="hr-line">
             <li><RouterLink to="/">Основные расчёты</RouterLink></li>
+            <hr class="hr-line">
             <li><RouterLink to="/calc">Калькулятор облигаций</RouterLink></li>
           </ul>
         </div>
@@ -86,95 +88,6 @@
   <div class="empty_card"></div>
   <main>
     <RouterView />
-    <!-- <div v-for="t in test" :key="t" :id="t.id" class="card">
-      <h2>{{ t.name }}</h2>
-      <div class="card__main">
-        <div class="card__main__inputs">
-          <label class="input">
-            <input
-              v-model="t.inp1"
-              class="input__field"
-              type="number"
-              placeholder=" "
-            />
-            <span class="input__label">{{ t.inp1text }}</span>
-            <img
-              @click="clear(t, 'inp1')"
-              class="input__img"
-              src="./imgs/close.png"
-              alt=""
-            />
-          </label>
-
-          <label class="input">
-            <input
-              v-model="t.inp2"
-              class="input__field"
-              type="number"
-              placeholder=" "
-            />
-            <span class="input__label">{{ t.inp2text }}</span>
-            <img
-              @click="clear(t, 'inp2')"
-              class="input__img"
-              src="./imgs/close.png"
-              alt=""
-            />
-          </label>
-        </div>
-        <div class="card__main__results">
-          <p
-            :class="{
-              copy_animate_on: copy_flag == t.func,
-              copy_animate_off: copy_flag == t.func,
-            }"
-            class="copy_alert"
-          >
-            Скопированно!
-          </p>
-          <h3>результат:</h3>
-          <div class="result_container">
-            <p
-              @click="copy(callPercent, t.func)"
-              v-if="t.func == 'persent'"
-              class="copyed_text"
-            >
-              {{ callPercent }}%
-            </p>
-            <p
-              @click="copy(callGrowth_rates, t.func)"
-              v-if="t.func == 'temps'"
-              class="copyed_text"
-            >
-              {{ callGrowth_rates }}%
-            </p>
-            <p
-              @click="copy(callTarget_price, t.func)"
-              v-if="t.func == 'price'"
-              class="copyed_text"
-            >
-              {{ callTarget_price }}
-            </p>
-            <p
-              @click="copy(callMarginality, t.func)"
-              v-if="t.func == 'mar'"
-              class="copyed_text"
-            >
-              {{ callMarginality }}
-            </p>
-            <p
-              @click="copy(callNetdebt_ebitda, t.func)"
-              v-if="t.func == 'n/e'"
-              class="copyed_text"
-            >
-              {{ callNetdebt_ebitda }}
-            </p>
-          </div>
-          <p class="note">нажмите на цифру чтобы скопировать</p>
-        </div>
-      </div>
-      <p class="card__info">{{ t.info }}</p>
-    </div> -->
     <div></div>
   </main>
 </template>

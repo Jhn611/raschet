@@ -9,6 +9,7 @@
   --bg: 1;
   --black: #000000;
   --hover: #8c8c8c;
+  --hoverbg: #bcbcbc;
   --white: #ffffff;
   --borderhead: #dbdbdb;
   --inputtext: #2c2c2c;
@@ -65,6 +66,7 @@ a {
   color: var(--black);
   cursor: pointer;
 }
+
 html {
   scroll-padding-top: 40px;
   background-color: var(--white);
@@ -380,6 +382,10 @@ input::-webkit-inner-spin-button {
   width: 362px;
 }
 
+input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(var(--img));
+}
+
 .ismobile {
   display: none;
 }
@@ -397,12 +403,13 @@ input::-webkit-inner-spin-button {
 .dropdown .dropdown-menu {
   position: absolute;
   top: calc(100% + 10px);
-  left: -100px;
+  left: -140px;
   display: none;
   background-color: var(--white);
   border-radius: 20px;
   border: 1px solid var(--borderhead);
   padding: 10px;
+  width: 230px;
 }
 .dropdown .dropdown-menu ul {
   list-style: none;
@@ -421,6 +428,22 @@ input::-webkit-inner-spin-button {
 }
 .dropdown.shown .dropdown-menu {
   display: block;
+}
+
+.menu_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hr-line {
+  margin: 2px 0 2px 0;
+  padding: 0;
+  height: 0;
+  border: none;
+  border-top: 1px solid var(--black);
+  width: 10px;
 }
 
 .copy_animate_on {
@@ -664,7 +687,7 @@ input::-webkit-inner-spin-button {
     border: 0px solid #16121a;
   }
   .card__xl {
-    height: 700px;
+    height: 670px;
   }
   .card__info {
     font-size: 14px;
@@ -709,6 +732,9 @@ input::-webkit-inner-spin-button {
     width: 345px;
     height: 300px;
     border: 0px solid #16121a;
+  }
+  .card__xl {
+    height: 670px;
   }
   .card__info {
     font-size: 14px;
