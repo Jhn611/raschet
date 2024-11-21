@@ -3,7 +3,7 @@ import axios from "axios";
 export async function getBondInfo(ticker) {
     const data = {};
     try {
-        const response = await axios.get('https://raschet-xkev.onrender.com/api/get-bond-info', {
+        const response = await axios.get('https://raschet-proxy.vercel.app/api/get-bond-info', {
             params: {
                 ticker: ticker  
             }
