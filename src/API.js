@@ -14,6 +14,7 @@ export async function getBondInfo(ticker) {
         data['couponQuantityPerYear'] = bond.couponQuantityPerYear;
         data['nominal'] = bond.nominal.units;
         data['maturityDate'] = bond.maturityDate;
+        //console.log('Информация об облигации:', bond);
 
         const response2 = await axios.get('https://raschet-xkev.onrender.com/api/get-bond-coupon', {
             params: {
@@ -27,11 +28,11 @@ export async function getBondInfo(ticker) {
         data['couponPeriod'] = couponinfo[1].couponPeriod;
         data['coupon'] = couponinfo[1].payOneBond.units;
         
-        console.log('Информация об облигации:', couponinfo);
+        //console.log('Информация о купоне:', couponinfo);
         return data; 
 
     } catch (error) {
         console.error('Ошибка при получении данных:', error.message);
-        //throw error;  // Пробрасываем ошибку дальше, чтобы вызвать обработку в вызывающем коде
+        throw error;  // Пробрасываем ошибку дальше, чтобы вызвать обработку в вызывающем коде
     }
 }
