@@ -279,6 +279,14 @@ input::-webkit-inner-spin-button {
   height: 100px;
 }
 
+.ticker_add {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+}
+
 .result_container {
   display: flex;
   flex-direction: column;
@@ -319,6 +327,9 @@ input::-webkit-inner-spin-button {
   position: relative;
   width: 400px;
   height: 40px;
+}
+.input__s {
+  width: 300px;
 }
 .input__label {
   position: absolute;
@@ -366,6 +377,9 @@ input::-webkit-inner-spin-button {
   font-family: Roboto;
   font-weight: 400;
   cursor: pointer;
+}
+.input__field__s {
+  width: 300px;
 }
 .input__field:focus {
   cursor: text;
@@ -442,13 +456,16 @@ input[type=date]::-webkit-calendar-picker-indicator {
   align-items: center;
 }
 
-.hr-line {
+.hr_line {
   margin: 2px 0 2px 0;
   padding: 0;
   height: 0;
   border: none;
   border-top: 1px solid var(--black);
   width: 10px;
+}
+.hr_line__xl {
+  width: 200px;
 }
 
 .copy_animate_on {
@@ -644,12 +661,18 @@ input[type=date]::-webkit-calendar-picker-indicator {
     width: 340px;
     height: 40px;
   }
+  .input__s {
+    width: 200px;
+  }
   .input__img {
     display: none;
   }
   .input__field {
     width: 328px;
     height: 40px;
+  }
+  .input__field__s {
+    width: 200px;
   }
   .input_div {
     width: 340px;
@@ -718,11 +741,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .card__main__results {
     height: 72px;
   }
+  .ticker_add {
+    width: 250px;
+  }
 }
 @media screen and (max-width: 390px) {
   .input {
     width: 320px;
     height: 40px;
+  }
+  .input__s {
+    width: 200px;
   }
   .input__img {
     display: none;
@@ -730,6 +759,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .input__field {
     width: 308px;
     height: 40px;
+  }
+  .input__field__s {
+    width: 200px;
   }
   .card {
     flex-direction: column;
@@ -764,5 +796,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
   .card__main__results {
     height: 72px;
+  }
+  .ticker_add {
+    width: 250px;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -1,6 +1,22 @@
 <template>
       <div class="card card__xl">
         <h2>{{ calc_info.name }}</h2>
+        
+        <div class="ticker_add">
+            <label class="input input__s">
+              <input
+                v-model="ticker"
+                class="input__field input__field__s"
+                type=""
+                placeholder=" "
+              />
+              <span class="input__label">Введите тикер</span>
+            </label>
+            <button class="add_button" @click="add_bond()">
+              +
+            </button>
+          </div>
+        <hr class="hr_line hr_line__xl">
         <div class="card__main card__main__xl">
           <div class="card__main__inputs card__main__inputs__xl">
             <label class="input">
@@ -128,6 +144,7 @@
   <script>
   import { useCookies } from "vue3-cookies";
   import { calculation_bonds } from "../EconomicCalcs.js";
+  import { getBondInfo } from "../API.js";
   
   export default {
     setup() {
@@ -137,6 +154,7 @@
     data() {
       return {
         copy_flag: false,
+        ticker: "",
         calc_info:
           {
             name: "Калькулятор доходности облигаций",
@@ -186,7 +204,7 @@
             break;
         default:
             console.error("Invalid input identifier:", val);
-    }
+        }
       },
       copy(val) {
         navigator.clipboard.writeText(val);
@@ -194,6 +212,13 @@
         setTimeout(() => {
           this.copy_flag = false;
         }, 2500);
+      },
+      async add_bond(){
+        const data = await getBondInfo(this.ticker);
+        this.calc_info.inp1 = data.placementPrice;
+        this.calc_info.inp2 = data.coupon;
+        this.calc_info.inp3 = data.couponPeriod;
+        this.calc_info.inp4 = new Date(data.maturityDate).toISOString().split('T')[0];  
       },
     },
     mounted() {

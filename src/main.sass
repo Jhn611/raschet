@@ -263,6 +263,13 @@ input::-webkit-inner-spin-button
             justify-content: space-between
             height: 100px
 
+.ticker_add
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    width: 350px
+
 .result_container
     display: flex
     flex-direction: column
@@ -298,6 +305,8 @@ input::-webkit-inner-spin-button
     position: relative
     width: 400px
     height: 40px
+    &__s
+        width: 300px
     &__label 
         position: absolute
         left: 10px
@@ -344,6 +353,8 @@ input::-webkit-inner-spin-button
         font-family: Roboto
         font-weight: 400
         cursor: pointer
+        &__s
+            width: 300px
         &:focus
             cursor: text
         &:focus,
@@ -362,6 +373,8 @@ input[type='date']::-webkit-calendar-picker-indicator
 .isnotmobile
     display: flex 
 
+.add_button
+    
 //----------------------------------------------------------------------------------
 .dropdown
   position: relative
@@ -495,13 +508,15 @@ input[type='date']::-webkit-calendar-picker-indicator
     justify-content: center
     align-items: center
 
-.hr-line 
+.hr_line 
     margin: 2px 0 2px 0
     padding: 0
     height: 0
     border: none
     border-top: 1px solid var(--black)
     width: 10px
+    &__xl
+        width: 200px
 
 
 .copy_animate_on
@@ -662,12 +677,16 @@ input[type='date']::-webkit-calendar-picker-indicator
     .input 
         width: 340px
         height: 40px
+        &__s
+            width: 200px
         &__img
             display: none
 
         &__field 
             width: 328px
             height: 40px
+            &__s
+                width: 200px
 
     .input_div
         width: 340px
@@ -723,17 +742,23 @@ input[type='date']::-webkit-calendar-picker-indicator
                     height: 420px
             &__results
                 height: 72px
+    .ticker_add
+        width: 250px
 
 @media  screen and (max-width: 390px) 
     .input 
         width: 320px
         height: 40px
+        &__s
+            width: 200px
         &__img
             display: none
 
         &__field 
             width: 308px
             height: 40px
+            &__s
+                width: 200px
     .card
         flex-direction: column
         justify-content: space-between
@@ -759,5 +784,6 @@ input[type='date']::-webkit-calendar-picker-indicator
                     height: 420px
             &__results
                 height: 72px
-
+    .ticker_add
+        width: 250px
 

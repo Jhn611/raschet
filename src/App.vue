@@ -76,9 +76,9 @@
                     </div>
                 </div>
             </li>
-            <hr class="hr-line">
+            <hr class="hr_line">
             <li><RouterLink to="/">Основные расчёты</RouterLink></li>
-            <hr class="hr-line">
+            <hr class="hr_line">
             <li><RouterLink to="/calc">Калькулятор облигаций</RouterLink></li>
           </ul>
         </div>
@@ -299,6 +299,7 @@ export default {
   },
   }
 };
+// const api="t.OqqpSBrV7ymA93LZsizfGdefgMpONaHlXAnh1XghPiILSM8ZzzrMPQ7xbVqgGSEMOekNHNcF5L07AzOY06V8yw"
 </script>
 
 <style src="./main.css"></style>
