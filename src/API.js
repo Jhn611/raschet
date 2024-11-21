@@ -12,7 +12,7 @@ export async function getBondInfo(ticker) {
         const bond = await response.data.instrument; 
 
         data['couponQuantityPerYear'] = bond.couponQuantityPerYear;
-        data['placementPrice'] = bond.placementPrice.units;
+        data['nominal'] = bond.nominal.units;
         data['maturityDate'] = bond.maturityDate;
 
         const response2 = await axios.get('https://raschet-xkev.onrender.com/api/get-bond-coupon', {
@@ -24,8 +24,8 @@ export async function getBondInfo(ticker) {
         });
 
         const couponinfo = await response2.data.events; 
-        data['couponPeriod'] = couponinfo[0].couponPeriod;
-        data['coupon'] = couponinfo[0].payOneBond.units;
+        data['couponPeriod'] = couponinfo[1].couponPeriod;
+        data['coupon'] = couponinfo[1].payOneBond.units;
         
         console.log('Информация об облигации:', couponinfo);
         return data; 

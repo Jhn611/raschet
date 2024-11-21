@@ -215,7 +215,7 @@
       },
       async add_bond(){
         const data = await getBondInfo(this.ticker);
-        this.calc_info.inp1 = data.placementPrice;
+        this.calc_info.inp1 = data.nominal;
         this.calc_info.inp2 = data.coupon;
         this.calc_info.inp3 = data.couponPeriod;
         this.calc_info.inp4 = new Date(data.maturityDate).toISOString().split('T')[0];  
