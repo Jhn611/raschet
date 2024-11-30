@@ -198,7 +198,7 @@
             this.calc_info.inp4 = "";
             break;
         case "inp5":
-            calc_info.inp5 = "";
+            this.calc_info.inp5 = "";
             break;
         case "inp6":
             this.calc_info.inp6 = "";
