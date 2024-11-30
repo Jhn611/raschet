@@ -77,9 +77,9 @@
                 </div>
             </li>
             <hr class="hr_line">
-            <li><RouterLink to="/">Основные расчёты</RouterLink></li>
+            <li @click="save_page('/')"><RouterLink to="/">Основные расчёты</RouterLink></li>
             <hr class="hr_line">
-            <li><RouterLink to="/calc">Калькулятор облигаций</RouterLink></li>
+            <li @click="save_page('/calc')"><RouterLink to="/calc">Калькулятор облигаций</RouterLink></li>
           </ul>
         </div>
       </span>
@@ -258,6 +258,9 @@ export default {
       }
       // console.log("Dropdown state:", this.state); 
     },
+    save_page(route){
+      localStorage.setItem('page', route);
+    }
   },
   mounted() {
     document.addEventListener('click', this.close.bind(this))
@@ -282,6 +285,10 @@ export default {
       if(inp2 != null){
         this.test[i].inp2 = inp2;
       }
+    }
+    const page = localStorage.getItem('page');
+    if(page && page != "" && page != null){
+      this.$router.push(page); 
     }
   },
   beforeDestroy () {

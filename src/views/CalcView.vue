@@ -12,12 +12,12 @@
               />
               <span class="input__label">Введите тикер</span>
             </label>
-            <button class="add_button" @click="add_bond()">
-              +
-            </button>
+            <img class="add_button" @click="add_bond()" src="../imgs/Plus circle.svg" alt="">
+            
           </div>
         <hr class="hr_line hr_line__xl">
-        <div class="card__main card__main__xl">
+        <div class="load_container" v-if="load"><img class="load_img" src="../imgs/Loader.svg"></div>
+        <div v-if="!load" class="card__main card__main__xl">
           <div class="card__main__inputs card__main__inputs__xl">
             <label class="input">
               <input
@@ -155,6 +155,7 @@
       return {
         copy_flag: false,
         ticker: "",
+        load: false,
         calc_info:
           {
             name: "Калькулятор доходности облигаций",
@@ -214,11 +215,18 @@
         }, 2500);
       },
       async add_bond(){
-        const data = await getBondInfo(this.ticker);
-        this.calc_info.inp1 = data.nominal;
-        this.calc_info.inp2 = data.coupon;
-        this.calc_info.inp3 = data.couponPeriod;
-        this.calc_info.inp4 = new Date(data.maturityDate).toISOString().split('T')[0];  
+        this.load = true;
+        try{
+          const data = await getBondInfo(this.ticker);
+          this.calc_info.inp1 = data.nominal;
+          this.calc_info.inp2 = data.coupon;
+          this.calc_info.inp3 = data.couponPeriod;
+          this.calc_info.inp4 = new Date(data.maturityDate).toISOString().split('T')[0]; 
+          this.load = false;
+        } catch{
+          this.load = false;
+        }
+       
       },
     },
     mounted() {

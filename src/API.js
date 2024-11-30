@@ -1,9 +1,10 @@
 import axios from "axios";
+const BASE_URL = "https://raschet-proxy.vercel.app"
 
 export async function getBondInfo(ticker) {
     const data = {};
     try {
-        const response = await axios.get('https://raschet-proxy.vercel.app/api/get-bond-info', {
+        const response = await axios.get(BASE_URL +'/api/get-bond-info', {
             params: {
                 ticker: ticker  
             }
@@ -14,9 +15,9 @@ export async function getBondInfo(ticker) {
         data['couponQuantityPerYear'] = bond.couponQuantityPerYear;
         data['nominal'] = bond.nominal.units;
         data['maturityDate'] = bond.maturityDate;
-        //console.log('Информация об облигации:', bond);
+        console.log('Первый запрос успешен');
 
-        const response2 = await axios.get('https://raschet-xkev.onrender.com/api/get-bond-coupon', {
+        const response2 = await axios.get(BASE_URL + '/api/get-bond-coupon', {
             params: {
                 figi: bond.figi,
                 from: bond.placementDate,
@@ -28,7 +29,7 @@ export async function getBondInfo(ticker) {
         data['couponPeriod'] = couponinfo[1].couponPeriod;
         data['coupon'] = couponinfo[1].payOneBond.units;
         
-        //console.log('Информация о купоне:', couponinfo);
+        console.log('Второй запрос успешен');
         return data; 
 
     } catch (error) {
