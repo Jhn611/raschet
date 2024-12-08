@@ -1,4 +1,5 @@
 <template>
+  <div class="card__container">
     <div v-for="t in test" :key="t" :id="t.id" class="card">
       <h2>{{ t.name }}</h2>
       <div class="card__main">
@@ -88,6 +89,7 @@
       </div>
       <p class="card__info">{{ t.info }}</p>
     </div>
+  </div>
 </template>
   
 <script>

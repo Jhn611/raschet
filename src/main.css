@@ -250,6 +250,13 @@ input::-webkit-inner-spin-button {
 .card__empty {
   height: 0;
 }
+.card__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 1700px;
+}
 .card__main {
   display: flex;
   flex-direction: row;
@@ -549,6 +556,37 @@ input[type=date]::-webkit-calendar-picker-indicator {
   filter: invert(var(--img));
 }
 
+.page_swap-enter-active, .page_swap-leave-active {
+  animation: load_page 0.5s;
+}
+
+.page_swap-enter-from, .page_swap-leave-to {
+  animation: swap_page 0.3s;
+}
+
+@keyframes load_page {
+  0% {
+    transform: translate(0, -80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes swap_page {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(0, 80px);
+    opacity: 0;
+  }
+}
 @keyframes load_img {
   0% {
     transform: rotate(0);

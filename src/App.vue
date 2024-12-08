@@ -87,7 +87,11 @@
   </header>
   <div class="empty_card"></div>
   <main>
-    <RouterView />
+    <transition
+      name="page_swap"
+      mode="out-in">
+      <RouterView />
+    </transition>
     <div></div>
   </main>
 </template>
